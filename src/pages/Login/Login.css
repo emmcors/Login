@@ -26,7 +26,7 @@
 }
 
 .dos{
-    color:white;
+    color:#fca311;
     font-size: 18px;
     display: flex;
     margin: 10px;
@@ -55,7 +55,7 @@
     outline: none;
     border-radius: 0%;
     background: rgb(12, 22, 31);
-    color: white;
+    color: #fca311;
     font-size: 15px;
 }
 
