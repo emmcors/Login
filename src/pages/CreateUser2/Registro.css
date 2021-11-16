@@ -7,14 +7,16 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url(../s.png);
+    background-image: url(../p1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    color: orange;
 }
 
 main{
-    background: orange;
+    background: rgba(0, 0, 0, .3);
+    box-shadow: 0 0 30px rgba(197, 112, 0, 0.466);
     width: 50%;
     height: 70%;
     display: flex;

@@ -4,11 +4,9 @@ import { tokenLogin } from "../../services/TokenLogin";
 //import { protec } from "../../services/Protected";
 
 import {
-    Redirect,
-    Link
+    Redirect
 }from "react-router-dom";
 
-import Title from "./Components/Title/Title";
 import Label from "./Components/Label/Label";
 import Input from "./Components/Input/Input";
 
@@ -27,7 +25,7 @@ const Login = () => {
             setUser(value);//variable para almacenar
             setHasError(false);
         }else{
-            if (value.length < 6){
+            if (value.length < 8){
                 setPasswordError(true);
                 setHasError(false);
             } else {
@@ -77,48 +75,54 @@ const Login = () => {
                 <Redirect to="/Home"></Redirect>
             :
                 //pagina LOGIN
-                <div className="login-content">
-                    <Title text='¡Bienvenido!'/>
+                <div className="login-content container-fluid">
+                    <div className="title-container">
+                        <label className = "title.label">
+                            ¡Bienvenido!
+                        </label>
+                    </div>
                     {hasError &&
                         <label className = 'label-alert'> Su contraseña o usuario son incorrectos,
                             o no existen en nuestra plataforma
                         </label> 
                     }
-                    <div className="dos"><Label text='Correo Electrónico'/></div>
-                    <Input 
-                    attribute={{
-                        id: 'usuario',
-                        name: 'usuario',
-                        type: 'text',
-                        placeholder: 'ingrese su correo'
-                    }}
-                    handleChange={handleChange}
-                    />
-                    <div className="dos"><Label text='Contraseña'/></div>
-                    <Input 
-                    attribute={{
-                        id: 'contraseña',
-                        name: 'contraseña',
-                        type: 'password',
-                        placeholder: 'ingrese su contraseña'
-                    }}
-                    handleChange={handleChange}
-                    param={passwordError}
-                    />
+                    <div className="formulario container-fluid w-75">
+                        <div className="dos"><Label text='Correo Electrónico'/></div>
+                        <Input
+                            attribute={{
+                                id: 'usuario',
+                                name: 'usuario',
+                                type: 'text',
+                                placeholder: 'ingrese su correo'
+                            }}
+                            handleChange={handleChange}
+                        />
+                        <div className="dos"><Label text='Contraseña'/></div>
+                        <Input
+                            attribute={{
+                                id: 'contraseña',
+                                name: 'contraseña',
+                                type: 'password',
+                                placeholder: 'ingrese su contraseña'
+                            }}
+                            handleChange={handleChange}
+                            param={passwordError}
+                        />
 
-                    { passwordError &&
-                        <label className="label-error">
-                            ( Contraseña incompleta )
-                        </label> 
-                    }
+                        { passwordError &&
+                            <label className="label-error">
+                                ( Contraseña incompleta )
+                            </label> 
+                        }
 
-                    <div className="submit-button-container1">
-                        <button onClick={ handleSubmit } className='submit-button'>
-                            Ingresar
-                        </button>
-                    </div>
-                    <div className="submit-button-container2">
-                        <Link to="/user" className="btn submit-button">Registro</Link>
+                        <div className="submit-button-container">
+                            <button onClick={ handleSubmit } className='btn submit-button'>
+                                Ingresar
+                            </button>
+                        </div>
+                        <div className="my-3">
+                            <span className="registro-container">No tienes cuenta? <a className="reg" href="/user">Regístrate</a></span>
+                        </div>
                     </div>
                 </div>
             

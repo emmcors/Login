@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
 
 const colores = {
-    borde: "#0075FF",
-    error: "#bb2929",
+    borde: "orange",
+    error: "red",
     exito: "#1ed12d"
 }
 
@@ -35,7 +35,8 @@ const GrupoInput = styled.div`
 
 const Input = styled.input`
     width: 100%;
-    background: #fff;
+    background: rgba(0, 0, 0, .3);
+    color: cadetblue;
     border-radius: 3px;
     height: 45px;
     line-height: 45px;
@@ -102,11 +103,10 @@ const Boton = styled.button`
     height: 45px;
     line-height: 45px;
     width: 30%;
-    background: #000;
-    color: #fff;
+    background: #fca311;
+    color:  rgb(68, 68, 68);
     font-weight: bold;
     border: none;
-    border-radius: 3px;
     cursor: pointer;
     transition: .1s ease all;
 
@@ -124,9 +124,8 @@ const MensajeExito = styled.p`
 const MensajeError = styled.div`
     height: 45px;
     line-height: 45px;
-    background: #F66060;
+    background: red;
     padding: 0px 15px;
-    border-radius: 3px;
     grid-column: span 2;
     p{
         margin: 0;
