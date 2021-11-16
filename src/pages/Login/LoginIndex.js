@@ -4,7 +4,8 @@ import { tokenLogin } from "../../services/TokenLogin";
 //import { protec } from "../../services/Protected";
 
 import {
-    Redirect
+    Redirect,
+    Link
 }from "react-router-dom";
 
 import Label from "./Components/Label/Label";
@@ -121,7 +122,7 @@ const Login = () => {
                             </button>
                         </div>
                         <div className="my-3">
-                            <span className="registro-container">No tienes cuenta? <a className="reg" href="/user">Regístrate</a></span>
+                            <span className="registro-container">No tienes cuenta? <Link to="/user">Regístrate</Link></span>
                         </div>
                     </div>
                 </div>
