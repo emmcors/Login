@@ -76,19 +76,15 @@ const Login = () => {
                 <Redirect to="/Home"></Redirect>
             :
                 //pagina LOGIN
-                <div className="login-content container-fluid">
-                    <div className="title-container">
-                        <label className = "title.label">
-                            ¡Bienvenido!
-                        </label>
-                    </div>
+                <div className="login-content">
+                        <h1>¡Bienvenido a Poemas.Net!</h1>
                     {hasError &&
                         <label className = 'label-alert'> Su contraseña o usuario son incorrectos,
                             o no existen en nuestra plataforma
                         </label> 
                     }
                     <div className="formulario container-fluid w-75">
-                        <div className="dos"><Label text='Correo Electrónico'/></div>
+                        <Label text='Correo Electrónico'/>
                         <Input
                             attribute={{
                                 id: 'usuario',
@@ -98,7 +94,7 @@ const Login = () => {
                             }}
                             handleChange={handleChange}
                         />
-                        <div className="dos"><Label text='Contraseña'/></div>
+                        <Label text='Contraseña'/>
                         <Input
                             attribute={{
                                 id: 'contraseña',
@@ -111,18 +107,18 @@ const Login = () => {
                         />
 
                         { passwordError &&
-                            <label className="label-error">
+                            <label className="label-alert">
                                 ( Contraseña incompleta )
                             </label> 
                         }
 
                         <div className="submit-button-container">
-                            <button onClick={ handleSubmit } className='btn submit-button'>
+                            <button onClick={ handleSubmit }>
                                 Ingresar
                             </button>
                         </div>
                         <div className="my-3">
-                            <span className="registro-container">No tienes cuenta? <Link to="/user">Regístrate</Link></span>
+                            <span className="alert-gray">No tienes cuenta? <Link to="/user">Regístrate</Link></span>
                         </div>
                     </div>
                 </div>
