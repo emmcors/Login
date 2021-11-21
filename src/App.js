@@ -15,7 +15,7 @@ import {
 function App() {
 
   /*const obtenerDatos = async () => {
-    let info={
+    let info={ //USER
       "name":"Emma",
       "lastName":"Rosas",
       "email":"ematest@gmail.com",
