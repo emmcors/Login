@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-import { Formulario, Label, TerminosCondiciones, BotonCentrado, Boton, MensajeExito, MensajeError} from "./elements/Formulario";
+import { Formulario, Label, TerminosCondiciones, BotonCentrado, Boton, MensajeExito, MensajeError} from "../services/Formulario_cu";
 import {
     Redirect
 }from "react-router-dom";
 
-import Input from "./components/Input";
-import "./Registro.css"
-import { saveUser } from "../../services/SaveUser";
+import Input from "../services/Input_cu";
+//import "./Registro.css"
+import { signUp } from "../services/SignUp";
 
-const App = () => {
+const Registro = () => {
   //const [usuario, cambiarUs] = useState({campo:"", valido: null});
   const [nombre, cambiarNom] = useState({campo:"", valido: null});
   const [apellido, cambiarAp] = useState({campo:"", valido: null});
@@ -64,21 +64,34 @@ const App = () => {
           "email": correo.campo,
           "password":password.campo
         };
-        
-        saveUser(info);
-
-        cambiarForm(true);
-        //cambiarUs({campo: "", valido: ""});
-        cambiarNom({campo: "", valido: null});
-        cambiarAp({campo: "", valido: null});
-        cambiarPas({campo: "", valido: null});
-        cambiarPas2({campo: "", valido: "null"});
-        cambiarCorr({campo: "", valido: null});
-        cambiarTel({campo: "", valido: null});
+        signUpF(info);     
         //...
       }else {
         cambiarForm(false);
       }
+  }
+
+  async function signUpF( param ){//condiciones
+    console.log(param);
+    let info={
+      "name": param.name,
+      "lastName":param.lastName,
+      "email": param.email,
+      "password":param.password
+    };
+    console.log(info);
+    const answer = await signUp(info);
+    console.log(answer);
+    if(answer){
+      cambiarForm(true);
+      //cambiarUs({campo: "", valido: ""});
+      cambiarNom({campo: "", valido: null});
+      cambiarAp({campo: "", valido: null});
+      cambiarPas({campo: "", valido: null});
+      cambiarPas2({campo: "", valido: "null"});
+      cambiarCorr({campo: "", valido: null});
+      cambiarTel({campo: "", valido: null});
+    }
   }
 
   return (
@@ -177,11 +190,10 @@ const App = () => {
                     <Boton type="submit">Enviar</Boton>
                     {formValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> && <Redirect to="/"></Redirect>}
                 </BotonCentrado>
-
             </Formulario>
         </main>
     </div>
   );
 }
  
-export default App;
+export default Registro;

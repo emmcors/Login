@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./Login.css"
-import { tokenLogin } from "../../services/TokenLogin";
+import { tokenLogin } from "../services/TokenLogin";
 //import { protec } from "../../services/Protected";
 
 import {
@@ -8,8 +7,8 @@ import {
     Link
 }from "react-router-dom";
 
-import Label from "./Components/Label/Label";
-import Input from "./Components/Input/Input";
+import Label from "../services/Label_login";
+import Input from "../services/Input_login";
 
 const Login = () => {
 
@@ -46,7 +45,7 @@ const Login = () => {
             const token = await tokenLogin(info);
             console.log("tokenY:", token);
 
-            if(token!==2){
+            if(token!==false){
                 //const id=protec(token)
                 const { user , password} = param;
                 let ac = { user , password };

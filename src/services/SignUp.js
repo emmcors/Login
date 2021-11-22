@@ -1,6 +1,6 @@
-
-export async function saveUser(info){
+export async function signUp(info){
     try{
+        console.log(info)
         const data = await fetch("https://magic-poems.herokuapp.com/singUp",{
             method:'POST',
             cache: 'default',
@@ -8,10 +8,17 @@ export async function saveUser(info){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(info)
-        }).then(response => response.json())
-        .then(json => console.log(json))
+        })
         //const response = await data.json()
-        return data
+        if(data.ok){
+            console.log("Exitoso");
+            const jsond = await data.json();
+            console.log(jsond);
+            return true
+        }else{
+            console.log("No se pudo resgistrar");
+            return false
+        }
     }catch(e){
         console.log(e)
     }
