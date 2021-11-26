@@ -9,6 +9,10 @@ import Input from "../services/Input_cu";
 import { signUp } from "../services/SignUp";
 
 const Registro = () => {
+  const [ isLogin, setIsLogin ] = useState(localStorage.getItem('token'));
+  console.log('token home', isLogin);
+  var log_in = (isLogin != 'false')
+  console.log(log_in)
   //const [usuario, cambiarUs] = useState({campo:"", valido: null});
   const [nombre, cambiarNom] = useState({campo:"", valido: null});
   const [apellido, cambiarAp] = useState({campo:"", valido: null});
@@ -96,6 +100,10 @@ const Registro = () => {
 
   return (
     <div className="reg-container">
+      { log_in ?
+      //pagina HOME
+          <Redirect to="/Home"></Redirect>
+      :
         <main>
             <div className="titulo mb-4">
                 <h1><b>Registro</b></h1>
@@ -192,6 +200,7 @@ const Registro = () => {
                 </BotonCentrado>
             </Formulario>
         </main>
+      }
     </div>
   );
 }

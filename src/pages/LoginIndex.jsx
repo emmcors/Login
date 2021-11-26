@@ -11,14 +11,16 @@ import Label from "../services/Label_login";
 import Input from "../services/Input_login";
 
 const Login = () => {
-
+    
     //estados
     const [ user, setUser] = useState('');
     const [ password, setPassword ] = useState('');
     const [ passwordError, setPasswordError ] = useState(false);
-    const [ isLogin, setIsLogin ] = useState(false);
+    const [ isLogin, setIsLogin ] = useState(localStorage.getItem('token'));
     const [ hasError, setHasError ] = useState(false);
-
+    console.log('token login', isLogin);
+    var log_in = (isLogin != 'false')
+    console.log(log_in)
     //funciones
     function handleChange(name, value){
         if(name === 'usuario'){
@@ -51,6 +53,7 @@ const Login = () => {
                 let ac = { user , password };
                 let account = JSON.stringify(ac);
                 localStorage.setItem('account', account);
+                localStorage.setItem('token', token)
                 setIsLogin(true);
             } else {
                 setIsLogin(false);
@@ -63,6 +66,7 @@ const Login = () => {
 
     function handleSubmit(){
         let account = { user, password }
+        console.log(account);
         if(account){
             ifMatch(account);
         }
@@ -70,7 +74,7 @@ const Login = () => {
 
     return(
         <div className= "login-container">
-            { isLogin ?
+            { log_in ?
             //pagina HOME
                 <Redirect to="/Home"></Redirect>
             :
