@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { tokenLogin } from "../services/TokenLogin";
+import { tokenLogin, isAdmin } from "../services/TokenLogin";
 //import { protec } from "../../services/Protected";
 
 import {
@@ -18,8 +18,9 @@ const Login = () => {
     const [ passwordError, setPasswordError ] = useState(false);
     const [ isLogin, setIsLogin ] = useState(localStorage.getItem('token'));
     const [ hasError, setHasError ] = useState(false);
+    const [ esAdmin, setEsAdmin] = useState(null);
     console.log('token login', isLogin);
-    var log_in = (isLogin != 'false')
+    var log_in = (isLogin !== 'false')
     console.log(log_in)
     //funciones
     function handleChange(name, value){
@@ -45,10 +46,17 @@ const Login = () => {
                 "password": param.password
             };
             const token = await tokenLogin(info);
-            console.log("tokenY:", token);
+
+            const admin = await isAdmin(token);
 
             if(token!==false){
-                //const id=protec(token)
+                if(admin){
+                    console.log("Es Administrador");
+                    setEsAdmin(true);
+                }else{
+                    console.log("No es administrador")
+                    setEsAdmin(false);
+                }
                 const { user , password} = param;
                 let ac = { user , password };
                 let account = JSON.stringify(ac);
@@ -74,9 +82,16 @@ const Login = () => {
 
     return(
         <div className= "login-container">
+            {console.log("ADMINISTRADOR1:", esAdmin)}
             { log_in ?
             //pagina HOME
-                <Redirect to="/Home"></Redirect>
+                <div>
+                    { esAdmin ? 
+                        <Redirect to="/adm"></Redirect> 
+                    : 
+                        <Redirect to="/Home"></Redirect>
+                    }
+                </div>
             :
                 //pagina LOGIN
                 <div className="login-content">
@@ -122,9 +137,6 @@ const Login = () => {
                         </div>
                         <div className="my-3">
                             <span className="alert-gray">No tienes cuenta? <Link className="click-cont" to="/user">Regístrate</Link></span>
-                        </div>
-                        <div className="my-3">
-                            <span className="alert-gray"><Link className="click-cont" to="/user">Usuario Administrador</Link></span>
                         </div>
                     </div>
                 </div>

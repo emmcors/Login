@@ -20,6 +20,29 @@ export async function tokenLogin(info){
         console.log(e)
     }
 }
+export async function isAdmin(token){
+    var ftoken = 'JWT ' + token
+    try{
+        const data = await fetch("https://magic-poems.herokuapp.com/isAdmin",{
+            method:'GET',
+            cache: 'default',
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization': ftoken
+            }
+        })
+        if(data.ok){
+            const jsond = await data.json();
+            console.log("jsond.isAdmin",jsond.isAdmin);
+            return jsond.isAdmin;
+        }else{
+            return false
+        }
+    }catch(e){
+        console.log(e)
+    }
+}
+
 export async function genPoem(info, token){
     console.log(info);
     var ftoken = 'JWT ' + token
