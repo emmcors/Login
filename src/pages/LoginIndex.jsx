@@ -121,7 +121,10 @@ const Login = () => {
                             </button>
                         </div>
                         <div className="my-3">
-                            <span className="alert-gray">No tienes cuenta? <Link to="/user">Regístrate</Link></span>
+                            <span className="alert-gray">No tienes cuenta? <Link className="click-cont" to="/user">Regístrate</Link></span>
+                        </div>
+                        <div className="my-3">
+                            <span className="alert-gray"><Link className="click-cont" to="/user">Usuario Administrador</Link></span>
                         </div>
                     </div>
                 </div>

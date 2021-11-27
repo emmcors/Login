@@ -207,6 +207,10 @@ button{
     color: #f7f5f6;
 }
 
+.click-cont{
+    color:black;
+    font-weight: bold;
+}
 
 .label-alert{
     justify-content: center;
