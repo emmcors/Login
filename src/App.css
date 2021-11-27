@@ -5,7 +5,7 @@
 }
 
 h1{
-    font: 90px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;   
+    font-family: 'Josefin Slab', serif;   
     margin: 10px 0px;
     color: #f7f5f6;
     text-align: center;
@@ -67,7 +67,7 @@ background-attachment: fixed;
 }
 
 .home-container{
-    font-family:'Open Sans';
+    font-family: 'Josefin Slab', serif;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -147,7 +147,7 @@ button{
     color: #f7f5f6;
 }
 .login-container {
-    font-family:'Open Sans';
+    font-family: 'Josefin Slab', serif;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -187,10 +187,6 @@ button{
     display: flex;
     margin: 10px;
     align-items: center;
-}
-
-.submit-button-container{
-    /* margin-top: 50px; */
 }
 
 .submit-button-container button{
@@ -258,7 +254,7 @@ button{
 
     border: 1px solid red;
     color: red;
-    background: rgba(255, 175, 175, 0.3);
+    background: rgba(50, 54, 70, 0.8);
 
     padding: 0 10px 0 20px;
     box-sizing: border-box;
@@ -288,9 +284,25 @@ button{
     left: 20%;
 }
 
+.form-container{
+    color: white;
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    background: rgba(72, 78, 97, 0.6);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 15%;
+    left: 12.5%;
+}
+
 .box-div p{
     color: #f7f5f6;
-    font: 20px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;
+    font-family: 'Josefin Slab', serif;
     margin: 20px;
     text-shadow: 1px 1px 4px #000000;
     text-align: center;
@@ -298,7 +310,7 @@ button{
 
 .box-div h2{
     color: #f7f5f6;
-    font: 45px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;
+    font-family: 'Josefin Slab', serif;
     margin: 20px;
     text-shadow: 2px 2px 4px #000000;
     text-align: center;
@@ -316,7 +328,7 @@ button{
     box-shadow: 1px 1px 4px #000000;
 }
 .ttitle{
-    font: 45px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;
+    font-family: 'Josefin Slab', serif;
 }
 .inputs{
     margin: 25px 0px;

@@ -22,6 +22,7 @@ const Registro = () => {
   const [telefono, cambiarTel] = useState({campo:"", valido: null});
   const [terminos, cambiarTerm] = useState(false);
   const [formValido, cambiarForm] = useState(null);
+  const [correoValido, cambiarCorrVal] = useState(null);
 
   const expresiones = {
     usuario: /^[a-zA-Z0-9_-]{4,12}$/, // Letras, numeros, guion y guion_bajo
@@ -88,6 +89,7 @@ const Registro = () => {
     console.log(answer);
     if(answer){
       cambiarForm(true);
+      cambiarCorrVal(true);
       //cambiarUs({campo: "", valido: ""});
       cambiarNom({campo: "", valido: null});
       cambiarAp({campo: "", valido: null});
@@ -95,6 +97,8 @@ const Registro = () => {
       cambiarPas2({campo: "", valido: "null"});
       cambiarCorr({campo: "", valido: null});
       cambiarTel({campo: "", valido: null});
+    }else{
+      cambiarCorrVal(false);
     }
   }
 
@@ -105,104 +109,114 @@ const Registro = () => {
           <Redirect to="/Home"></Redirect>
       :
         <main>
-            <div className="titulo mb-4">
-                <h1><b>Registro</b></h1>
+            <div className="form-container">
+              <div className="titulo mb-4">
+                  <h1><b>Registro</b></h1>
+              </div>
+              <Formulario action="" onSubmit={onSubmit}>
+                  {/*<Input
+                      estado={usuario}
+                      cambiarEst={cambiarUs}
+                      tipo="text"
+                      label="Usuario"
+                      placeholder="jhon123"
+                      name="usuario"
+                      leyError="El usuario puede ser de 4 a 12 digitos y solo puede contener numeros, letras y guiones."
+                      expRegular={expresiones.usuario}
+                  />*/}
+                  <Input
+                      estado={nombre}
+                      cambiarEst={cambiarNom}
+                      tipo="text"
+                      label="Nombre(s)"
+                      placeholder="Carlos German"
+                      name="nomb"
+                      leyError="El nombre solo puede contener letras y espacios."
+                      expRegular={expresiones.nombre}
+                  />
+                  <Input
+                      estado={apellido}
+                      cambiarEst={cambiarAp}
+                      tipo="text"
+                      label="Apellido(s)"
+                      placeholder="Hernandez Carbajal"
+                      name="apellido"
+                      leyError="El apellido solo puede contener letras y espacios."
+                      expRegular={expresiones.nombre}
+                  />
+                  <Input
+                      estado={password}
+                      cambiarEst={cambiarPas}
+                      tipo="password"
+                      label="Contraseña"
+                      placeholder="* * * * * * * *"
+                      name="password1"
+                      leyError="La contraseña debe tener una mayuscula, un número y un caracter especial"
+                      expRegular={expresiones.password}
+                  />
+                  <Input
+                      estado={password2}
+                      cambiarEst={cambiarPas2}
+                      tipo="password"
+                      label="Repetir Contraseña"
+                      placeholder="* * * * * * * *"
+                      name="password2"
+                      leyError="Ambas contraseñas deben ser iguales."
+                      funcion={validarPassword2}//función que se ejecuta cuando hay un cambio en el input
+                  />
+                  <Input
+                      estado={correo}
+                      cambiarEst={cambiarCorr}
+                      tipo="email"
+                      label="Correo Electrónico"
+                      placeholder="correo@ejemplo.com"
+                      name="correo"
+                      leyError="El correo solo puede contener letras, numeros, puntos y guiones"
+                      expRegular={expresiones.correo}
+                  />
+                  <Input
+                      estado={telefono}
+                      cambiarEst={cambiarTel}
+                      tipo="text"
+                      label="Telefono"
+                      placeholder="4491234568"
+                      name="telefono"
+                      leyError="El telefono solo puede tener de 7 a 14 digitos"
+                      expRegular={expresiones.telefono}
+                  />
+                  <TerminosCondiciones className="mb-5">
+                      <Label>
+                          <input 
+                              type="checkbox"
+                              name="terminos"
+                              id="terminos"
+                              checked={terminos} 
+                              onChange={onChangeTerminos}
+                          />
+                          Acepto los Terminos y Condiciones
+                      </Label>
+                  </TerminosCondiciones>
+                  {formValido === false && <MensajeError>
+                      <p>
+                          <b>Error:</b> Por favor rellena el formulario correctamente.
+                      </p>
+                  </MensajeError>}
+                  {correoValido === false && <MensajeError>
+                      <p>
+                          <b>Error:</b> Correo ya registrado, por favor registre otro usuario.
+                      </p>
+                  </MensajeError>}
+                  <BotonCentrado>
+                      <Boton type="submit">Enviar</Boton>
+                      {formValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> && <Redirect to="/"></Redirect>}
+                  </BotonCentrado>
+              </Formulario>
             </div>
-            <Formulario action="" onSubmit={onSubmit}>
-                {/*<Input
-                    estado={usuario}
-                    cambiarEst={cambiarUs}
-                    tipo="text"
-                    label="Usuario"
-                    placeholder="jhon123"
-                    name="usuario"
-                    leyError="El usuario puede ser de 4 a 12 digitos y solo puede contener numeros, letras y guiones."
-                    expRegular={expresiones.usuario}
-                />*/}
-                <Input
-                    estado={nombre}
-                    cambiarEst={cambiarNom}
-                    tipo="text"
-                    label="Nombre(s)"
-                    placeholder="Carlos German"
-                    name="nomb"
-                    leyError="El nombre solo puede contener letras y espacios."
-                    expRegular={expresiones.nombre}
-                />
-                <Input
-                    estado={apellido}
-                    cambiarEst={cambiarAp}
-                    tipo="text"
-                    label="Apellido(s)"
-                    placeholder="Hernandez Carbajal"
-                    name="apellido"
-                    leyError="El apellido solo puede contener letras y espacios."
-                    expRegular={expresiones.nombre}
-                />
-                <Input
-                    estado={password}
-                    cambiarEst={cambiarPas}
-                    tipo="password"
-                    label="Contraseña"
-                    name="password1"
-                    leyError="La contraseña debe tener una mayuscula, un número, un caracter especial y longitud mayor a 8"
-                    expRegular={expresiones.password}
-                />
-                <Input
-                    estado={password2}
-                    cambiarEst={cambiarPas2}
-                    tipo="password"
-                    label="Repetir Contraseña"
-                    name="password2"
-                    leyError="Ambas contraseñas deben ser iguales."
-                    funcion={validarPassword2}//función que se ejecuta cuando hay un cambio en el input
-                />
-                <Input
-                    estado={correo}
-                    cambiarEst={cambiarCorr}
-                    tipo="email"
-                    label="Correo Electrónico"
-                    placeholder="correo@ejemplo.com"
-                    name="correo"
-                    leyError="El correo solo puede contener letras, numeros, puntos y guiones"
-                    expRegular={expresiones.correo}
-                />
-                <Input
-                    estado={telefono}
-                    cambiarEst={cambiarTel}
-                    tipo="text"
-                    label="Telefono"
-                    placeholder="4491234568"
-                    name="telefono"
-                    leyError="El telefono solo puede tener de 7 a 14 digitos"
-                    expRegular={expresiones.telefono}
-                />
-                <TerminosCondiciones className="mb-5">
-                    <Label>
-                        <input 
-                            type="checkbox"
-                            name="terminos"
-                            id="terminos"
-                            checked={terminos} 
-                            onChange={onChangeTerminos}
-                        />
-                        Acepto los Terminos y Condiciones
-                    </Label>
-                </TerminosCondiciones>
-                {formValido === false && <MensajeError>
-                    <p>
-                        <b>Error:</b> Por favor rellena el formulario correctamente.
-                    </p>
-                </MensajeError>}
-                <BotonCentrado>
-                    <Boton type="submit">Enviar</Boton>
-                    {formValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> && <Redirect to="/"></Redirect>}
-                </BotonCentrado>
-            </Formulario>
+            
         </main>
       }
     </div>
   );
 }
- 
+
 export default Registro;
