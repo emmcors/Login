@@ -9,6 +9,8 @@ import Registro2 from './pages/Registro';
 import ListPoem from './pages/ListPoems';
 import ViewPoem from './pages/ViewPoem';
 import Admin from './pages/Admin';
+import Poemas from './pages/Poemas';
+import Users from './pages/Usuarios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +28,8 @@ function App() {
           <Route exact path="/home" component={Home}/>
           <Route exact path="/user" component={Registro2}/>
           <Route exact path="/adm" component={Admin}/>
+          <Route exact path="/poems" component={Poemas}/>
+          <Route exact path="/users" component={Users}/>
           <Route path="/" component={Login}/>
         </Switch>
         
