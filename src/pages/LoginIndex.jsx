@@ -53,9 +53,11 @@ const Login = () => {
                 if(admin){
                     console.log("Es Administrador");
                     setEsAdmin(true);
+                    localStorage.setItem('admin', admin);
                 }else{
                     console.log("No es administrador")
                     setEsAdmin(false);
+                    localStorage.setItem('admin', admin);
                 }
                 const { user , password} = param;
                 let ac = { user , password };
