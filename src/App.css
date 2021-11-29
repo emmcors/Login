@@ -165,6 +165,20 @@ button{
     text-align: center;
     text-decoration: none;
 }
+.buscar2{
+    width: 28%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 0%;
+    color:  #f7f5f6;
+    background-color: rgba(72, 78, 97, 0.6);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
 .espbutton:hover{
     color: #f7f5f6;
 }

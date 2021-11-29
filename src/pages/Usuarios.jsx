@@ -3,7 +3,7 @@ import {
     Redirect
 }from "react-router-dom";
 
-import { listUs, usEmail } from "../services/userList";
+import { listUs, usEmail , usId, deletUs} from "../services/userList";
 
 function Usuarios() {
 
@@ -33,16 +33,52 @@ function Usuarios() {
         cadena="";
         cadena += "id:" +userEm.id + "\n";
         cadena += "nombre:" +userEm.name + "\n";
-        cadena += "apellido:" +userEm.lastname + "\n";
         cadena += "email:" +userEm.email + "\n";
-        cadena += "administrador:" +userEm.isAdmin + "\n";
         console.log(cadena);
         setLista(cadena);
     }
 
-    function handleButton(){
+    async function idUs(id){
+        var userId = await usId(id,isLogin);
+        console.log("RESPUESTA 1",userId);
+        cadena="";
+        cadena += "id:" +userId.id + "\n";
+        cadena += "nombre:" +userId.name + "\n";
+        cadena += "email:" +userId.email + "\n";
+        console.log(cadena);
+        setLista(cadena);
+    }
+
+    async function delUser(id){
+        var msg = await deletUs(id,isLogin);
+        console.log("RESPUESTA 2",msg);
+        if(msg=='User Deleted'){
+            cadena="Usuario "+id+" Eliminado";
+        }else{
+            cadena="No se encontró el usuario";
+        }
+        console.log(cadena);
+        setLista(cadena);
+    }
+
+    function handleButton1(){
         var email = document.getElementById("inEm").value;
-        emailUs(email)
+        emailUs(email);
+    }
+
+    function handleButton2(){
+        var id = document.getElementById("iid").value;
+        idUs(id);
+    }
+
+    function handleButton3(){
+        var id = document.getElementById("iid").value;
+        console.log("ESTE USUARIO VAS A ELIMINAR :",id)
+        if(id==="1"){
+            setLista("No se puede eliminar al Administrador");
+        }else{
+            delUser(id);
+        }
     }
 
     return (
@@ -57,8 +93,10 @@ function Usuarios() {
                                     <h2>Administrador</h2>
                                     <h3>Buscar usuario</h3>
                                     <input className="ttitle" type="text" name="infoEmail" id="inEm" placeholder="Email del usuario"/>
+                                    <button className="buscar" onClick={handleButton1}>Buscar por ID</button>
                                     <input className="ttitle" type="text" name="infoId" id="iid" placeholder="Id del usuario"/>
-                                    <button className="buscar" onClick={handleButton}>Buscar</button>
+                                    <button className="buscar" onClick={handleButton2}>Buscar por Email</button>
+                                    <button className="buscar2" onClick={handleButton3}>Eliminar Usuario</button>
                                     <button className="buscar" onClick={uList}>Todos los usuarios</button>
                                     <p><pre>{listaUsuarios}</pre></p>
                                 </div>
