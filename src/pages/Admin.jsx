@@ -11,9 +11,9 @@ const Admin = () => {
     const [ isLogin, setIsLogin ] = useState(localStorage.getItem('token'));
     const [ esAdmin, setEsAdmin ] = useState(localStorage.getItem('admin'));
     const [ user, setUser ] = useState("defaul_user");
-    var log_in = (isLogin != 'false')
-    var admin = (esAdmin != 'false')
-    var userT = ""
+    var log_in = (isLogin != 'false');
+    var admin = (esAdmin != 'false');
+    var userT = "";
 
     async function getName(){
         userT = await getUser(isLogin);
