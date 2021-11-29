@@ -93,9 +93,9 @@ function Usuarios() {
                                     <h2>Administrador</h2>
                                     <h3>Buscar usuario</h3>
                                     <input className="ttitle" type="text" name="infoEmail" id="inEm" placeholder="Email del usuario"/>
-                                    <button className="buscar" onClick={handleButton1}>Buscar por ID</button>
+                                    <button className="buscar" onClick={handleButton1}>Buscar por Email</button>
                                     <input className="ttitle" type="text" name="infoId" id="iid" placeholder="Id del usuario"/>
-                                    <button className="buscar" onClick={handleButton2}>Buscar por Email</button>
+                                    <button className="buscar" onClick={handleButton2}>Buscar por ID</button>
                                     <button className="buscar2" onClick={handleButton3}>Eliminar Usuario</button>
                                     <button className="buscar" onClick={uList}>Todos los usuarios</button>
                                     <p><pre>{listaUsuarios}</pre></p>
