@@ -19,6 +19,7 @@ function Inicio() {
     const [titlerender, setTitlerender] = useState("No hay titulo recuperado");
     function handleButtonn(){
         let idPoem = document.getElementById("IDPOEM").value;
+        console.log("ID!!!!",idPoem);
         getP(idPoem);
     }
     async function getListpoems(){
@@ -39,18 +40,19 @@ function Inicio() {
         getListpoems();
     }
     async function getP(infooo){
-        console.log(infooo)
+        console.log("infoooo::",infooo)
         let info={
             "id": infooo
         }
         poemGen = await getPoem(info, isLogin)
-        console.log(poemGen)
         for (let i = 0; i < poemGen.length; i++) {
             fpoem += poemGen[i] + "\n"
         }
         setPoemrender(fpoem);
-        setTitlerender(document.getElementById("IDPOEM").innerText);
-        console.log(fpoem)
+        var selected=document.getElementById("IDPOEM");
+        setTitlerender(selected.options[selected.selectedIndex].text);
+        console.log("POEMA:",fpoem);
+        console.log("TITULO:",selected.options[selected.selectedIndex].text);
     }
     return (
         <div>

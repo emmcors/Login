@@ -123,7 +123,7 @@ export async function listPoem(token){
 
 export async function getPoem(info, token){
     var ftoken = 'JWT ' + token
-    console.log(ftoken)
+    console.log("FTOKEN",ftoken)
     var url = "https://magic-poems.herokuapp.com/get-poem"
     url = url + "/"+info.id
     try{
