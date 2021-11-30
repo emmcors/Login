@@ -44,7 +44,7 @@ function Inicio() {
         var key = document.getElementById("keyw").value;
         var tts = poemrender.split("\n");
         tts.pop();
-        console.log("antes",poemrender);
+        console.log("antes ",poemrender);
         let account = { tit, key, tts};
         console.log(tts);
         if(account){
@@ -54,7 +54,7 @@ function Inicio() {
     async function save2(param){
         console.log(param)
         let info={
-            "tittle": param.tit,
+            "title": param.tit,
             "keyword": param.key,
             "poem": param.tts
         };

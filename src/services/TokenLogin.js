@@ -161,7 +161,8 @@ export async function save(info, token){
             body: JSON.stringify(info)
         })
         if(response.ok){
-            const token=await response.json();
+            const token2=await response.json();
+            console.log("TOKEN SAVE:", token2)
             return true;
         }else{
             return false;
