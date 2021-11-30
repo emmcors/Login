@@ -23,6 +23,7 @@ function Usuarios() {
             cadena += "apellido:" +list[i].lastname + "\n"
             cadena += "email:" +list[i].email + "\n"
             cadena += "administrador:" +list[i].isAdmin + "\n"
+            cadena += "\n"
         }
         console.log(cadena)
         setLista(cadena);

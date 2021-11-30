@@ -16,12 +16,10 @@ const Login = () => {
     const [ user, setUser] = useState('');
     const [ password, setPassword ] = useState('');
     const [ passwordError, setPasswordError ] = useState(false);
-    const [ isLogin, setIsLogin ] = useState(localStorage.getItem('token'));
+    const [ isLogin, setIsLogin ] = useState(false);
     const [ hasError, setHasError ] = useState(false);
     const [ esAdmin, setEsAdmin] = useState(null);
     console.log('token login', isLogin);
-    var log_in = (isLogin !== 'false')
-    console.log(log_in)
     //funciones
     function handleChange(name, value){
         if(name === 'usuario'){ //USUARIO
@@ -88,8 +86,7 @@ const Login = () => {
     return(
         <div className= "login-container">
             {console.log("ADMINISTRADOR1:", esAdmin)}
-            {console.log("LOG_IN:", log_in)}
-            { log_in ?
+            { isLogin ?
             //pagina HOME
                 <div>
                     { esAdmin ? 

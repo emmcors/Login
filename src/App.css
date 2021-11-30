@@ -254,8 +254,9 @@ button{
 
 .label-alert{
     justify-content: center;
-    font-size: 14px;
-    color: red;
+    font-weight: 520;
+    font-size: 17px !important;
+    color: rgb(255, 93, 93) !important;
 }
 
 .login-content h1{
