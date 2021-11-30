@@ -86,7 +86,7 @@ const Registro = () => {
     };
     console.log(info);
     const answer = await signUp(info);
-    console.log(answer);
+    console.log("ANSWER:",answer);
     if(answer){
       cambiarForm(true);
       cambiarCorrVal(true);
@@ -113,7 +113,7 @@ const Registro = () => {
               <div className="titulo mb-4">
                   <h1><b>Registro</b></h1>
               </div>
-              <Formulario action="" onSubmit={onSubmit}>
+              <Formulario action="#" onSubmit={onSubmit}>
                   {/*<Input
                       estado={usuario}
                       cambiarEst={cambiarUs}
@@ -208,7 +208,7 @@ const Registro = () => {
                   </MensajeError>}
                   <BotonCentrado>
                       <Boton type="submit">Enviar</Boton>
-                      {formValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> && <Redirect to="/"></Redirect>}
+                      {formValido === true && correoValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> && <Redirect to="/Login"></Redirect>}
                   </BotonCentrado>
               </Formulario>
             </div>

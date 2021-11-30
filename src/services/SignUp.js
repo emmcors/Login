@@ -9,15 +9,14 @@ export async function signUp(info){
             },
             body: JSON.stringify(info)
         })
-        //const response = await data.json()
         if(data.ok){
             console.log("Exitoso");
             const jsond = await data.json();
             console.log(jsond);
-            return true
+            return true;
         }else{
             console.log("No se pudo resgistrar");
-            return false
+            return false;
         }
     }catch(e){
         console.log(e)

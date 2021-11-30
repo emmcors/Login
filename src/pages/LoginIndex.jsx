@@ -24,10 +24,10 @@ const Login = () => {
     console.log(log_in)
     //funciones
     function handleChange(name, value){
-        if(name === 'usuario'){
+        if(name === 'usuario'){ //USUARIO
             setUser(value);//variable para almacenar
             setHasError(false);
-        }else{
+        }else{                  //CONTRASEÑA
             if (value.length < 8){
                 setPasswordError(true);
                 setHasError(false);
@@ -49,25 +49,28 @@ const Login = () => {
 
             const admin = await isAdmin(token);
 
+            console.log("VALOR DEL TOKEN:", token);
+
             if(token!==false){
                 if(admin){
                     console.log("Es Administrador");
                     setEsAdmin(true);
-                    localStorage.setItem('admin', admin);
                 }else{
-                    console.log("No es administrador")
+                    console.log("No es administrador");
                     setEsAdmin(false);
-                    localStorage.setItem('admin', admin);
                 }
                 const { user , password} = param;
                 let ac = { user , password };
                 let account = JSON.stringify(ac);
                 localStorage.setItem('account', account);
-                localStorage.setItem('token', token)
+                localStorage.setItem('token', token);
+                localStorage.setItem('admin', admin);
                 setIsLogin(true);
             } else {
                 setIsLogin(false);
                 setHasError(true);
+                console.log("isLogin:",isLogin);
+                console.log("hasError1.5:",hasError);
             }
         } else {
             setIsLogin(false);
@@ -76,7 +79,7 @@ const Login = () => {
 
     function handleSubmit(){
         let account = { user, password }
-        console.log(account);
+        console.log("ACCOUNT:",account);
         if(account){
             ifMatch(account);
         }
@@ -85,6 +88,7 @@ const Login = () => {
     return(
         <div className= "login-container">
             {console.log("ADMINISTRADOR1:", esAdmin)}
+            {console.log("LOG_IN:", log_in)}
             { log_in ?
             //pagina HOME
                 <div>
@@ -116,6 +120,7 @@ const Login = () => {
                         />
                         <Label text='Contraseña'/>
                         <Input
+                            className="buscar"
                             attribute={{
                                 id: 'contraseña',
                                 name: 'contraseña',

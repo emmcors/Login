@@ -217,6 +217,10 @@ button{
     border-radius: 5px;
 }
 
+.login-container input::placeholder{
+    color:rgb(121, 185, 187);
+}
+
 .login-content label{
     color:#f7f5f6;
     font-size: 18px;

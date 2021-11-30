@@ -12,7 +12,7 @@ function Inicio() {
     console.log('token home', isLogin);
     console.log('Es administrador?', esAdmin);
     var log_in = (isLogin != 'false')
-    var admin = (esAdmin != 'false')
+    var admin2 = (esAdmin != 'false')
     console.log(log_in)
     var userT = ""
     function handleGenPoem(){
@@ -28,11 +28,11 @@ function Inicio() {
     return (
 
         <div>
-            {console.log("ADMINISTRADOR2:", admin)}
+            {console.log("ADMINISTRADOR2:", admin2)}
             { log_in ?
                 //pagina HOME
                     <div>
-                        { admin ? 
+                        { admin2 ? 
                             <Redirect to="/adm"></Redirect> 
                         : 
                             <div>
