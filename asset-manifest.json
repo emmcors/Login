@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Login/static/css/main.38621348.chunk.css",
-    "main.js": "/Login/static/js/main.8a5d921c.chunk.js",
-    "main.js.map": "/Login/static/js/main.8a5d921c.chunk.js.map",
+    "main.css": "/Login/static/css/main.53781430.chunk.css",
+    "main.js": "/Login/static/js/main.4ac396ee.chunk.js",
+    "main.js.map": "/Login/static/js/main.4ac396ee.chunk.js.map",
     "runtime-main.js": "/Login/static/js/runtime-main.1b21ef67.js",
     "runtime-main.js.map": "/Login/static/js/runtime-main.1b21ef67.js.map",
     "static/js/2.2ad2bcb5.chunk.js": "/Login/static/js/2.2ad2bcb5.chunk.js",
     "static/js/2.2ad2bcb5.chunk.js.map": "/Login/static/js/2.2ad2bcb5.chunk.js.map",
     "index.html": "/Login/index.html",
-    "static/css/main.38621348.chunk.css.map": "/Login/static/css/main.38621348.chunk.css.map",
+    "static/css/main.53781430.chunk.css.map": "/Login/static/css/main.53781430.chunk.css.map",
     "static/js/2.2ad2bcb5.chunk.js.LICENSE.txt": "/Login/static/js/2.2ad2bcb5.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Login/static/media/logout.f0f14280.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1b21ef67.js",
     "static/js/2.2ad2bcb5.chunk.js",
-    "static/css/main.38621348.chunk.css",
-    "static/js/main.8a5d921c.chunk.js"
+    "static/css/main.53781430.chunk.css",
+    "static/js/main.4ac396ee.chunk.js"
   ]
 }
