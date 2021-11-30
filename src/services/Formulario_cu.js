@@ -18,8 +18,7 @@ const Formulario = styled.form`
 
 const Label = styled.label`
     display: block;
-    font-weight: 700;
-    padding: 10px;
+    font-weight: 500;
     min-height: 40px;
     cursor: pointer;
 
@@ -41,11 +40,14 @@ const Input = styled.input`
     border-radius: 3px;
     height: 35px;
     line-height: 35px;
-    padding: 10px 350px 10px 10px;
     transition: 0.3s ease all;
     border: 3px solid transparent;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
     background: rgba(72, 78, 97, 0.6);
+    ::placeholder,
+    ::-webkit-input-placeholder {
+        color: rgb(114, 173, 175);
+    }
 
     &:focus{
         border: 3px solid ${colores.borde};
@@ -64,7 +66,7 @@ const Input = styled.input`
 
 const LeyendaError = styled.p`
     font-size: 18px;
-    margin-bottom: 0;
+    margin: 0px;
     color: ${colores.error};
     display:none;
 
@@ -108,7 +110,6 @@ const Boton = styled.button`
     width: 100%;
     background: rgba(72, 78, 97, 0.6);
     color:  white;
-    font-weight: bold;
     border: none;
     cursor: pointer;
     transition: .1s ease all;

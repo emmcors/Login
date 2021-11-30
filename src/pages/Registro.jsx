@@ -109,10 +109,10 @@ const Registro = () => {
           <Redirect to="/Home"></Redirect>
       :
         <main>
-            <div className="form-container">
-              <div className="titulo mb-4">
+            <div className="titulo mb-4">
                   <h1><b>Registro</b></h1>
-              </div>
+            </div>
+            <div className="form-container">
               <Formulario action="#" onSubmit={onSubmit}>
                   {/*<Input
                       estado={usuario}
